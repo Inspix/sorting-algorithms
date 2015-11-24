@@ -10,7 +10,7 @@
             int[] numbers = new[] { 5, 4, 3, 7, 6, 5, 123, 43, 25 };
             Console.WriteLine(string.Join(", ", numbers));
 
-            Sorting<int>.Comb(numbers);
+            Sorting.Quick(numbers);
 
             Console.WriteLine(string.Join(", ", numbers));
 
@@ -22,7 +22,7 @@
             }
             Console.WriteLine("Array size: {0} | Filled at: {1}", bigArray.Length, DateTime.Now + ":" + DateTime.Now.Millisecond);
             Stopwatch watch = Stopwatch.StartNew();
-            IntegerSorting.Bucket(bigArray);
+            Sorting.Quick(bigArray);
             watch.Stop();
             //Console.WriteLine(string.Join("\n", bigArray));
             Console.WriteLine("Array size: {0} | Sorted at: {1}\nTime Elapsed: ~{2}ms", bigArray.Length, DateTime.Now + ":" + DateTime.Now.Millisecond, watch.ElapsedMilliseconds);

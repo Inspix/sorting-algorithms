@@ -2,9 +2,9 @@
 {
     using System;
 
-    public static partial class Sorting <T> where T : IComparable<T>
+    public static partial class Sorting
     {
-        public static void Insertion(T[] array)
+        public static void Insertion<T>(T[] array) where T : IComparable<T>
         {
             for (int i = 0; i < array.Length; i++)
             {

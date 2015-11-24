@@ -2,9 +2,9 @@
 {
     using System;
 
-    public static partial class Sorting<T> where T : IComparable<T>
+    public static partial class Sorting
     {
-        public static void Bubble(T[] array)
+        public static void Bubble<T>(T[] array) where T : IComparable<T>
         {
             int n = array.Length;
             bool hasChanged;

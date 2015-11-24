@@ -2,9 +2,9 @@
 {
     using System;
 
-    public static partial class Sorting<T> where T : IComparable<T>
+    public static partial class Sorting
     {
-        public static void Comb(T[] array)
+        public static void Comb<T>(T[] array) where T: IComparable<T>
         {
             int interval = array.Length;
             float divider = 1.3f;

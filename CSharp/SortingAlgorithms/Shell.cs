@@ -2,10 +2,9 @@
 {
     using System;
 
-    public static partial class Sorting<T>
-        where T : IComparable<T>
+    public static partial class Sorting
     {
-        public static void Shell(T[] array)
+        public static void Shell<T>(T[] array) where T : IComparable<T>
         {
             int interval = 1;
             while (interval <= array.Length / 3)

@@ -2,9 +2,9 @@
 {
     using System;
 
-    public static partial class Sorting<T> where T : IComparable<T>
+    public static partial class Sorting
     {
-        public static void Cocktail(T[] array)
+        public static void Cocktail<T>(T[] array) where T : IComparable<T>
         {
             int startIndex = -1;
             int endIndex = array.Length - 1;

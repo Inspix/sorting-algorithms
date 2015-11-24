@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Bucket.cs" />
     <Compile Include="Comb.cs" />
+    <Compile Include="Quick.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Cocktail.cs" />
     <Compile Include="Bubble.cs" />

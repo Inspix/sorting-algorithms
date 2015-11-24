@@ -12,21 +12,21 @@ namespace AlgorithmTests
         [Test, TestCaseSource(typeof(Factory), "TestCases")]
         public void ShellSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Shell(data);
+            SortingAlgorithms.Sorting.Shell(data);
             CollectionAssert.IsOrdered(data);
         }
 
         [Test, TestCaseSource(typeof(Factory),"TestCases")]
         public void SelectionSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Selection(data);
+            SortingAlgorithms.Sorting.Selection(data);
             CollectionAssert.IsOrdered(data);
         }
 
         [Test, TestCaseSource(typeof(Factory), "TestCases")]
         public void BubbleSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Bubble(data);
+            SortingAlgorithms.Sorting.Bubble(data);
             CollectionAssert.IsOrdered(data);
         }
 
@@ -40,35 +40,36 @@ namespace AlgorithmTests
         [Test, TestCaseSource(typeof(Factory), "TestCases")]
         public void InsertionSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Insertion(data);
+            SortingAlgorithms.Sorting.Insertion(data);
             CollectionAssert.IsOrdered(data);
         }
 
         [Test, TestCaseSource(typeof(Factory), "TestCases")]
         public void CocktailSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Cocktail(data);
+            SortingAlgorithms.Sorting.Cocktail(data);
             CollectionAssert.IsOrdered(data);
         }
 
         [Test, TestCaseSource(typeof(Factory), "TestCases")]
         public void CombSort(int[] data)
         {
-            SortingAlgorithms.Sorting<int>.Comb(data);
+            SortingAlgorithms.Sorting.Comb(data);
             CollectionAssert.IsOrdered(data);
         }
 
-
-
+        [Test, TestCaseSource(typeof(Factory), "TestCases")]
+        public void QuickSort(int[] data)
+        {
+            SortingAlgorithms.Sorting.Quick(data);
+            CollectionAssert.IsOrdered(data);
+        }
     }
-
-
-
 
     public static class Factory
     {
-        private static int[] aLotOfValues;
-        private static int[] aLotMoreValues;
+        private static readonly int[] aLotOfValues;
+        private static readonly int[] aLotMoreValues;
 
         static Factory()
         {
