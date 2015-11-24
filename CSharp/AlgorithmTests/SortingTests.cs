@@ -64,6 +64,13 @@ namespace AlgorithmTests
             SortingAlgorithms.Sorting.Quick(data);
             CollectionAssert.IsOrdered(data);
         }
+
+        [Test, TestCaseSource(typeof(Factory), "TestCases")]
+        public void Merge(int[] data)
+        {
+            SortingAlgorithms.Sorting.Merge(data);
+            CollectionAssert.IsOrdered(data);
+        }
     }
 
     public static class Factory
