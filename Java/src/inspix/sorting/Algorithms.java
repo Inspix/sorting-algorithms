@@ -1,5 +1,7 @@
 package inspix.sorting;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -188,4 +190,49 @@ public class Algorithms {
             }
         }
     }
+
+    /**************************************************************
+     *   Merge SORT
+     * *************************************************************/
+
+    public static <T extends Comparable<T>> void Merge(T[] array){
+        if (array.length <=1)
+            return;
+        @SuppressWarnings("unchecked")
+        T[] workArray = (T[])Array.newInstance(array.getClass().getComponentType(),array.length);
+        int length = array.length;
+        for (int size = 1; size < length; size = 2 * size)
+        {
+
+            for (int i = 0; i < array.length; i = i + 2 * size)
+            {
+                mergeSort(array, i, Math.min(i + size, length), Math.min(i + 2 * size, length), workArray);
+            }
+
+            System.arraycopy(workArray, 0, array, 0, array.length);
+        }
+
+    }
+
+    private static <T extends Comparable<T>> void mergeSort(T[] array,int min, int middle,int max,T[] work){
+        int left = min;
+        int right = middle;
+        int index;
+
+        for (index = min; index < max; index++)
+        {
+            if (left < middle && (right >= max || array[left].compareTo(array[right]) <= 0))
+            {
+                work[index] = array[left];
+                left = left + 1;
+            }
+            else
+            {
+                work[index] = array[right];
+                right = right + 1;
+            }
+        }
+
+    }
+
  }

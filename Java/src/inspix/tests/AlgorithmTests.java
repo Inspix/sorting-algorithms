@@ -190,4 +190,25 @@ public class AlgorithmTests {
         Algorithms.Quick(testData);
         Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
     }
+
+    @Test
+    public void mergeSortRandom(){
+        Integer[] testData = getTestOne();
+        Algorithms.Merge(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void mergeSortReversed(){
+        Integer[] testData = getTestTwo();
+        Algorithms.Merge(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void mergeSortBig(){
+        Integer[] testData = getTestThree();
+        Algorithms.Merge(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
 }
