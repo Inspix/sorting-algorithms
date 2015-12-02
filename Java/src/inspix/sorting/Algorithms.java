@@ -107,4 +107,27 @@ public class Algorithms {
         }
     }
 
+    public static <T extends Comparable<T>> void Comb(T[] array){
+        int step = array.length;
+        double factor = 1.3;
+        boolean hasChanged;
+
+        do {
+            step = (int)(step/factor);
+            if (step < 1)
+                step = 1;
+            hasChanged = false;
+            int i = 0;
+            while (step + i < array.length){
+                if (array[i].compareTo(array[i + step]) > 0){
+                    T temp = array[i];
+                    array[i] = array[i + step];
+                    array[i + step] = temp;
+                    hasChanged = true;
+                }
+                i++;
+            }
+        }while(step != 1 || hasChanged);
+    }
+
 }

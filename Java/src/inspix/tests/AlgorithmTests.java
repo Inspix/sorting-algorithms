@@ -149,4 +149,24 @@ public class AlgorithmTests {
         Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
     }
 
+    @Test
+    public void combSortRandom(){
+        Integer[] testData = getTestOne();
+        Algorithms.Comb(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void combSortReversed(){
+        Integer[] testData = getTestTwo();
+        Algorithms.Comb(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void combSortBig(){
+        Integer[] testData = getTestThree();
+        Algorithms.Comb(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
 }
