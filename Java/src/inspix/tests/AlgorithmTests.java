@@ -128,4 +128,25 @@ public class AlgorithmTests {
         Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
     }
 
+    @Test
+    public void shellSortRandom(){
+        Integer[] testData = getTestOne();
+        Algorithms.Shell(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void shellSortReversed(){
+        Integer[] testData = getTestTwo();
+        Algorithms.Shell(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void shellSortBig(){
+        Integer[] testData = getTestThree();
+        Algorithms.Shell(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
 }

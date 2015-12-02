@@ -88,6 +88,23 @@ public class Algorithms {
         }while(hasChanged);
     }
 
-    
+    public static <T extends Comparable<T>> void Shell(T[] array){
+        int step = 1;
+        while(step <= array.length/3){
+            step = step * 3 + 1;
+        }
+
+        while (step > 0){
+            for (int i = step; i < array.length; i++) {
+                T temp = array[i];
+                int j = i;
+                for (;j > step - 1 && array[j - step].compareTo(temp) >= 0; j -= step){
+                    array[j] = array[j - step];
+                }
+                array[j] = temp;
+            }
+            step = (step - 1) /3;
+        }
+    }
 
 }
