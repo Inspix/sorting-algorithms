@@ -107,4 +107,25 @@ public class AlgorithmTests {
         Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
     }
 
+    @Test
+    public void coctailSortRandom(){
+        Integer[] testData = getTestOne();
+        Algorithms.Cocktail(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void coctailSortReversed(){
+        Integer[] testData = getTestTwo();
+        Algorithms.Cocktail(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
+    @Test
+    public void coctailSortBig(){
+        Integer[] testData = getTestThree();
+        Algorithms.Cocktail(testData);
+        Assert.assertEquals("Array not sorted!",true,isInOrder(testData));
+    }
+
 }

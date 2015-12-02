@@ -55,4 +55,39 @@ public class Algorithms {
         }
     }
 
+    public static <T extends Comparable<T>> void Cocktail(T[] array){
+        int start = -1;
+        int end = array.length -1;
+        boolean hasChanged;
+
+        do {
+            hasChanged = false;
+            start++;
+            for (int i = start; i < end; i++) {
+                if (array[i].compareTo(array[i + 1]) > 0){
+                    hasChanged = true;
+                    T temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                }
+            }
+
+            if (!hasChanged)
+                break;
+
+            hasChanged = false;
+            end--;
+            for (int i = end; i >= start ; i--) {
+                if (array[i].compareTo(array[i + 1]) > 0){
+                    hasChanged = true;
+                    T temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                }
+            }
+        }while(hasChanged);
+    }
+
+    
+
 }
