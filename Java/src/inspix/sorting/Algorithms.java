@@ -7,6 +7,9 @@ import java.util.Comparator;
  */
 public class Algorithms {
 
+    /**************************************************************
+     *   Selection SORT
+     * *************************************************************/
     public static <T extends Comparable<T>> void Selection(T[] array){
 
         for (int i = 0; i < array.length; i++) {
@@ -25,6 +28,9 @@ public class Algorithms {
 
     }
 
+    /**************************************************************
+     *   Bubble SORT
+     * *************************************************************/
     public static <T extends Comparable<T>> void Bubble(T[] array){
         int end = array.length;
         while(end != 0){
@@ -43,6 +49,9 @@ public class Algorithms {
         }
     }
 
+    /**************************************************************
+     *   Insertion SORT
+     * *************************************************************/
     public static <T extends Comparable<T>> void Insertion(T[] array){
         for (int i = 0; i < array.length; i++) {
             T temp = array[i];
@@ -55,6 +64,9 @@ public class Algorithms {
         }
     }
 
+    /**************************************************************
+     *   Cocktail SORT
+     * *************************************************************/
     public static <T extends Comparable<T>> void Cocktail(T[] array){
         int start = -1;
         int end = array.length -1;
@@ -88,6 +100,9 @@ public class Algorithms {
         }while(hasChanged);
     }
 
+    /**************************************************************
+     *   Shell SORT
+     * *************************************************************/
     public static <T extends Comparable<T>> void Shell(T[] array){
         int step = 1;
         while(step <= array.length/3){
@@ -107,6 +122,9 @@ public class Algorithms {
         }
     }
 
+    /**************************************************************
+    *   Comb SORT
+    * *************************************************************/
     public static <T extends Comparable<T>> void Comb(T[] array){
         int step = array.length;
         double factor = 1.3;
@@ -130,4 +148,44 @@ public class Algorithms {
         }while(step != 1 || hasChanged);
     }
 
-}
+    /**************************************************************
+     *   Quick SORT
+     * *************************************************************/
+    public static <T extends Comparable<T>> void Quick(T[] array){
+        if (array.length <= 1)
+            return;
+
+        quickSort(array,0,array.length-1);
+    }
+
+    private static <T extends Comparable<T>> void quickSort(T[] array,int low, int high){
+        if (low < high){
+            int pivot = getPivot(array,low,high);
+            quickSort(array,low,pivot);
+            quickSort(array,pivot+1,high);
+        }
+    }
+
+    private static <T extends Comparable<T>> int getPivot(T[] array,int low,int high){
+        T pivot = array[low];
+        int i = low -1;
+        int j = high +1;
+        while(true){
+            do {
+                j--;
+            }while(array[j].compareTo(pivot) > 0);
+            do {
+                i++;
+
+            }while(array[i].compareTo(pivot) < 0);
+
+            if (i < j){
+                T temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }else{
+                return j;
+            }
+        }
+    }
+ }
