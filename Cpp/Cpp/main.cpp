@@ -40,18 +40,18 @@ struct SimpleStruct {
 int main(int argc, char** argv) {
 	//array<int, 8> arr;
 	srand(time_t(235));
-	vector<SimpleStruct> arr(50);
-	for (int i = 0; i < 50; i++)
+	vector<SimpleStruct> arr(500);
+	for (int i = 0; i < 500; i++)
 	{
 		arr[i] = SimpleStruct{ rand(),rand(),(char)rand() % 128 };
 	}
 
-	for (int i = 0; i < 50; i++)
+	/*for (int i = 0; i < 5000; i++)
 	{
 		cout << i+1 << " : " << arr[i] << endl;
-	}
+	}*/
 
-	Sorting::shell(arr.begin(),arr.end());
+	Sorting::merge(arr.data(),arr.size());
 	static int counter = 0;
 	for_each(arr.begin(), arr.end(), [](SimpleStruct x) { cout << ++counter << " : " << x << endl; });
 

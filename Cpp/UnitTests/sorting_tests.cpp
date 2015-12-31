@@ -45,7 +45,7 @@ struct ReversedSmallArrayTest : testing::Test {
 
 
 static bool hugeArrayInitialized = false;
-static int hugeArraySize = 10000;
+static int hugeArraySize = 100000;
 static int* hugeArray = new int[hugeArraySize];
 
 struct RandomHugeArrayTest : testing::Test {
@@ -63,7 +63,7 @@ struct RandomHugeArrayTest : testing::Test {
 			hugeArrayInitialized = true;
 		}
 		arr = new int[length];
-		memcpy(arr, hugeArray, length);
+		memcpy(arr, hugeArray, length * sizeof(int));
 		
 	}
 	void TearDown() {
@@ -101,6 +101,24 @@ TEST_F(SimpleArrayTest, ShellSortSimpleArray) {
 	EXPECT_TRUE(arraySorted(arr, length));
 }
 
+TEST_F(SimpleArrayTest, CombSortSimpleArray) {
+	Sorting::comb(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(SimpleArrayTest, QuickSortSimpleArray) {
+	Sorting::quick(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(SimpleArrayTest, MergeSortSimpleArray) {
+	Sorting::merge(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
 /*------------------------------------------------------------------------*/
 
 TEST_F(ReversedSmallArrayTest, SelectionSortReversedArray) {
@@ -129,6 +147,24 @@ TEST_F(ReversedSmallArrayTest, InsertionSortReversedArray) {
 
 TEST_F(ReversedSmallArrayTest, ShellSortReversedArray) {
 	Sorting::shell(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(ReversedSmallArrayTest, CombSortReversedArray) {
+	Sorting::comb(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(ReversedSmallArrayTest, QuickSortReversedArray) {
+	Sorting::quick(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(ReversedSmallArrayTest, MergeSortReversedArray) {
+	Sorting::merge(arr, length);
 
 	EXPECT_TRUE(arraySorted(arr, length));
 }
@@ -164,3 +200,22 @@ TEST_F(RandomHugeArrayTest, ShellSortHugeArray) {
 
 	EXPECT_TRUE(arraySorted(arr, length));
 }
+
+TEST_F(RandomHugeArrayTest, CombSortHugeArray) {
+	Sorting::comb(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(RandomHugeArrayTest, QuickSortHugeArray) {
+	Sorting::quick(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
+TEST_F(RandomHugeArrayTest, MergeSortHugeArray) {
+	Sorting::merge(arr, length);
+
+	EXPECT_TRUE(arraySorted(arr, length));
+}
+
